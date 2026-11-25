@@ -663,6 +663,7 @@ html.js .slide:not(.active) .tl-line i { width: 0; }
 #questions .qs li:first-child { font-size: 38px; }
 #questions .qs li span { display: block; margin-top: 8px; color: var(--muted); font-size: 23px; font-weight: 500; }
 
+#what .h2 { font-size: 55px; }
 #what .sch-core { justify-content: center; }
 #what .sch-n:not(.out) b { font-size: 20px; }
 #what .sch-n strong { color: var(--ink); }
@@ -683,34 +684,6 @@ html.js .slide:not(.active) .tl-line i { width: 0; }
 #arch .srv .nodes div { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
 #arch .srv .nodes b { font-size: 20px; }
 #arch .srv .nodes div:first-child span { color: #ff9b9b; }
-
-#why .p3 > div { gap: 26px; }
-#why .p3-n {
-  display: grid; place-items: center; align-self: flex-start; width: 84px; height: 84px;
-  margin-bottom: 12px; clip-path: var(--oct); border: 0; background: var(--acc);
-}
-#why .p3-n::after { content: ""; display: block; }
-#why .p3-migrate::after {
-  width: 39px; height: 30px; background: #100b14;
-  clip-path: polygon(0 40%, 61% 40%, 61% 0, 100% 50%, 61% 100%, 61% 60%, 0 60%);
-}
-#why .p3-protect::after {
-  width: 32px; height: 39px; background: #100b14;
-  clip-path: polygon(50% 0, 100% 18%, 100% 54%, 91% 75%, 50% 100%, 9% 75%, 0 54%, 0 18%);
-}
-#why .p3-load::after {
-  width: 36px; height: 35px;
-  background: linear-gradient(#100b14, #100b14) left bottom / 8px 13px no-repeat,
-              linear-gradient(#100b14, #100b14) center bottom / 8px 24px no-repeat,
-              linear-gradient(#100b14, #100b14) right bottom / 8px 35px no-repeat;
-}
-#why .p3 h3 { min-height: 2.24em; }
-#why .p3 ul { gap: 16px; }
-#why .p3 li { position: relative; padding-left: 24px; font-size: 24px; }
-#why .p3 li::before {
-  content: ""; position: absolute; top: .54em; left: 0; width: 10px; height: 10px;
-  background: var(--acc); clip-path: var(--oct);
-}
 
 .reg-intro { margin-top: 22px; font-size: 27px; color: var(--muted); }
 .reg-v2 { display: grid; grid-template-columns: minmax(0, 2.1fr) minmax(0, 1fr); gap: 52px; margin-top: 46px; }
@@ -748,9 +721,28 @@ html.js .slide:not(.active) .tl-line i { width: 0; }
 .mig-qr { display: grid; justify-items: center; gap: 12px; color: var(--ink); font-size: 17px; text-align: center; text-underline-offset: 4px; }
 .mig-qr img { width: 112px; height: 112px; padding: 7px; border-radius: 8px; background: #fff; image-rendering: pixelated; }
 
-#support .cl-wall { background: none; color: var(--ink); padding: 26px 0 0; border-top: 1px solid var(--line); border-radius: 0; gap: 25px; }
-#support .cl-k { color: var(--muted); }
-#support .cl-logos { gap: 18px 30px; }
+#support .recognition {
+  display: grid; grid-template-columns: 450px minmax(0, 1fr); gap: 72px;
+  margin-top: 58px; min-height: 540px;
+}
+#support .aw { grid-template-columns: minmax(0, 1fr); grid-template-rows: repeat(3, 1fr); gap: 22px; margin: 0; }
+#support .aw li { padding: 20px 0 0; }
+#support .aw b { font-size: 46px; }
+#support .aw span { margin-top: 10px; font-size: 21px; }
+#support .cl-wall {
+  align-self: stretch; margin: 0; color: var(--ink); padding: 32px 44px 36px; gap: 24px;
+  background: linear-gradient(135deg, rgba(91,110,157,.34), rgba(67,80,116,.19));
+  border: 1px solid rgba(208,219,248,.24); box-shadow: inset 0 1px 0 rgba(255,255,255,.05);
+}
+#support .cl-k {
+  font-size: 32px; letter-spacing: 0; text-align: left; text-transform: none; color: var(--ink);
+}
+#support .cl-logos { grid-template-columns: repeat(4, minmax(0, 1fr)); grid-auto-rows: 1fr; gap: 10px 24px; }
+#support .cl-logos > span { height: 80px; }
+#support .cl-logos .more { grid-column: 3 / -1; }
+@media print {
+  #support .cl-wall { background: #181e32; box-shadow: none; }
+}
 #support .cl-logos > span { min-width: 0; }
 #support .cl-logos img { filter: brightness(0) invert(.91); max-width: 95%; }
 #support .cl-logos img.brand-mark { filter: grayscale(1) invert(1) brightness(1.25); max-height: 52px; }
@@ -830,7 +822,7 @@ html.js .slide:not(.active) .tl-line i { width: 0; }
 
 <section class="slide g-blue" id="what" data-title="Что умеет Пульт">
   <div class="top"><div class="eyebrow"><span class="n">01</span>Что такое Пульт</div><img src="../assets/pult-horizontal-on-dark.svg" alt="Пульт" class="logo"></div>
-  <h2 class="h2 rv" style="max-width:none">От&nbsp;CPU до&nbsp;сообщения в&nbsp;чате</h2>
+  <h2 class="h2 rv" style="max-width:none">Единый взгляд на&nbsp;мониторинг ИТ-инфраструктуры</h2>
   <div class="sch rv" style="--d:80ms">
     <svg class="sch-l" viewBox="0 0 1680 600" preserveAspectRatio="none" aria-hidden="true">
       <path d="M300 77 H345 M300 141 H345 M300 205 H345 M300 269 H345 M300 333 H345 M300 397 H345 M300 461 H345 M300 525 H345 M345 77 V525 M345 175 H420 M345 425 H420"/>
@@ -897,12 +889,12 @@ html.js .slide:not(.active) .tl-line i { width: 0; }
 </section>
 
 <section class="slide pp-poster" id="why" data-title="Три причины">
-  <div class="top"><div class="eyebrow"><span class="n">02</span>Преимущества</div><img src="../assets/pult-horizontal-on-dark.svg" alt="Пульт" class="logo"></div>
-  <h2 class="h2 rv" style="max-width:none">Три причины выбрать</h2>
+  <div class="top"><div class="eyebrow"><span class="n">02</span>Почему Пульт</div><img src="../assets/pult-horizontal-on-dark.svg" alt="Пульт" class="logo"></div>
+  <h2 class="h2 rv" style="max-width:none">Три причины выбрать Пульт</h2>
   <div class="p3 rv" style="--d:100ms">
-    <div><span class="p3-n p3-migrate" aria-hidden="true"></span><h3>Импортозамещение без&nbsp;потерь</h3><ul><li>В&nbsp;реестре российского ПО</li><li>Миграция с&nbsp;Zabbix за&nbsp;неделю</li><li>350+ шаблонов, в&nbsp;том числе под&nbsp;российские системы</li></ul></div>
-    <div><span class="p3-n p3-protect" aria-hidden="true"></span><h3>Безопасность и&nbsp;КИИ</h3><ul><li>Меры 117 приказа ФСТЭК</li><li>Сертификация ФСТЭК, 4&nbsp;уровень доверия</li><li>Проверка каждого релиза</li></ul></div>
-    <div><span class="p3-n p3-load" aria-hidden="true"></span><h3>Enterprise и&nbsp;highload</h3><ul><li>50&nbsp;000+ NVPS в&nbsp;одной инсталляции</li><li>В&nbsp;3&nbsp;раза быстрее Zabbix</li><li>В&nbsp;10&nbsp;раз меньше места под&nbsp;историю</li><li>Отказоустойчивость и&nbsp;катастрофоустойчивость: HA и&nbsp;DR</li></ul></div>
+    <div><span class="p3-n">1</span><h3>Импортозамещение без&nbsp;потерь</h3><ul><li>В&nbsp;реестре российского ПО</li><li>Миграция с&nbsp;Zabbix за&nbsp;неделю</li><li>350+ шаблонов, в&nbsp;том числе под&nbsp;российские системы</li></ul></div>
+    <div><span class="p3-n">2</span><h3>Безопасность и&nbsp;КИИ</h3><ul><li>Меры 117 приказа ФСТЭК</li><li>Сертификация ФСТЭК, 4&nbsp;уровень доверия</li><li>Проверка каждого релиза</li></ul></div>
+    <div><span class="p3-n">3</span><h3>Enterprise и&nbsp;highload</h3><ul><li>50&nbsp;000+ NVPS в&nbsp;одной инсталляции</li><li>В&nbsp;3&nbsp;раза быстрее Zabbix</li><li>В&nbsp;10&nbsp;раз меньше места под&nbsp;историю</li><li>Отказоустойчивость и&nbsp;катастрофоустойчивость: HA и&nbsp;DR</li></ul></div>
   </div>
   <p class="p3-rule rv" style="--d:200ms">Фундамент Zabbix, ответственность вендора</p>
   <div class="foot"><span></span><span class="pg"></span></div>
@@ -1082,15 +1074,15 @@ html.js .slide:not(.active) .tl-line i { width: 0; }
       <tr><td>Совместимость с&nbsp;шаблонами и&nbsp;агентами Zabbix</td><td><i class="y"></i></td><td><i class="y"></i></td><td class="pu"><i class="y"></i></td></tr>
       <tr><td>Реестр российского ПО</td><td><i class="n"></i></td><td><i class="y"></i></td><td class="pu"><i class="y"></i></td></tr>
       <tr><td>Сертификация ФСТЭК, 4&nbsp;уровень доверия</td><td><i class="n"></i></td><td class="tx">разный статус</td><td class="pu">H1&nbsp;2027</td></tr>
-      <tr><td>Высокая производительность</td><td class="tx">н/д</td><td class="tx">н/д</td><td class="pu">50&nbsp;000+ NVPS</td></tr>
+      <tr><td>Отказоустойчивость и&nbsp;катастрофоустойчивость</td><td class="tx">только HA</td><td class="tx">часто только HA</td><td class="pu">HA и&nbsp;DR</td></tr>
       <tr><td>Собственный агент</td><td class="tx">агент Zabbix</td><td class="tx">часто нет</td><td class="pu"><i class="y"></i></td></tr>
       <tr><td>Установка пакетами и&nbsp;в&nbsp;контейнерах</td><td><i class="y"></i></td><td class="tx">что-то одно</td><td class="pu"><i class="y"></i></td></tr>
-      <tr><td>Модули ИБ: сессии, аудит, экспорт в&nbsp;SIEM</td><td><i class="n"></i></td><td class="tx">зависит от&nbsp;продукта</td><td class="pu"><i class="y"></i></td></tr>
+      <tr><td>Модули ИБ: сессии, аудит, экспорт в&nbsp;SIEM</td><td><i class="n"></i></td><td class="tx">по-разному</td><td class="pu"><i class="y"></i></td></tr>
       <tr><td>Техническая поддержка в&nbsp;России, 24×7</td><td><i class="n"></i></td><td><i class="y"></i></td><td class="pu"><i class="y"></i></td></tr>
       <tr><td>Замена связки Zabbix&nbsp;+&nbsp;Grafana</td><td><i class="n"></i></td><td><i class="n"></i></td><td class="pu">с&nbsp;Графиней</td></tr>
     </tbody>
   </table>
-  <div class="cmp-note small rv" style="--d:140ms"><p>Типичный форк – обобщение по&nbsp;открытым данным. Н/д – нет сопоставимых данных.</p></div>
+  <div class="cmp-note small rv" style="--d:140ms"><p>Типичный форк – обобщение по&nbsp;открытым данным российских аналогов Zabbix</p></div>
   <div class="foot"><span></span><span class="pg"></span></div>
 </section>
 
@@ -1127,28 +1119,30 @@ html.js .slide:not(.active) .tl-line i { width: 0; }
 <section class="slide g-tl" id="support" data-title="Признание и сопровождение">
   <div class="top"><div class="eyebrow"><span class="n">03</span>Признание и&nbsp;сопровождение</div><img src="../assets/pult-horizontal-on-dark.svg" alt="Пульт" class="logo"></div>
   <h2 class="h2 rv" style="max-width:none">Рынок выбирает Пульт, вендор остаётся рядом</h2>
-  <ul class="aw rv" style="--d:60ms">
-    <li><b>Топ‑1</b><span>российских альтернатив Zabbix<br>CNewsMarket, 2026</span></li>
-    <li><b>Решение года</b><span>Digital Leaders, 2026</span></li>
-    <li><b>Топ‑2</b><span>по&nbsp;внедрениям в&nbsp;инфраструктурном мониторинге<br>ТеДо, 2025</span></li>
-  </ul>
-  <div class="cl-wall rv" style="--d:120ms">
-    <p class="cl-k">Нам доверяют</p>
-    <div class="cl-logos">
-      <span><img src="../assets/logos/sheremetyevo.webp" alt="Аэропорт Шереметьево"></span>
-      <span><img class="brand-mark" src="../assets/logos/t2.svg" alt="Т2"></span>
-      <span><img src="../assets/logos/gazpromneft.webp" alt="Газпром нефть" style="max-height:70px"></span>
-      <span><img class="brand-mark" src="../assets/logos/hsbc.svg" alt="HSBC"></span>
-      <span><img src="../assets/logos/commerzbank.svg" alt="Коммерцбанк (Евразия)" style="max-height:34px"></span>
-      <span><img class="brand-mark brand-matte" src="../assets/logos/sakhalin-energy.webp" alt="Сахалинская Энергия"></span>
-      <span><img src="../assets/logos/mosinzhproekt.svg" alt="Мосинжпроект" style="max-height:50px"></span>
-      <span><img src="../assets/logos/capital-group.webp" alt="Capital Group"></span>
-      <span class="lt"><img src="../assets/logos/ixcellerate.webp" alt="">IXcellerate</span>
-      <span class="wm">Газпромтранс</span>
-      <span class="wm">Арктикгаз</span>
-      <span class="lt"><img src="../assets/logos/krasnodar-coat.svg" alt="">ЦИТ Краснодарского края</span>
-      <span class="wm">АвтоАльянс</span>
-      <span class="more">и&nbsp;ещё 40+</span>
+  <div class="recognition">
+    <ul class="aw rv" style="--d:60ms">
+      <li><b>Топ‑1</b><span>российских альтернатив Zabbix<br>CNewsMarket, 2026</span></li>
+      <li><b>Решение года</b><span>Digital Leaders, 2026</span></li>
+      <li><b>Топ‑2</b><span>по&nbsp;внедрениям в&nbsp;инфраструктурном мониторинге<br>ТеДо, 2025</span></li>
+    </ul>
+    <div class="cl-wall rv" style="--d:120ms">
+      <h3 class="cl-k">Нам доверяют</h3>
+      <div class="cl-logos">
+        <span><img src="../assets/logos/sheremetyevo.webp" alt="Аэропорт Шереметьево"></span>
+        <span><img class="brand-mark" src="../assets/logos/t2.svg" alt="Т2"></span>
+        <span><img src="../assets/logos/gazpromneft.webp" alt="Газпром нефть" style="max-height:70px"></span>
+        <span><img class="brand-mark" src="../assets/logos/hsbc.svg" alt="HSBC"></span>
+        <span><img src="../assets/logos/commerzbank.svg" alt="Коммерцбанк (Евразия)" style="max-height:34px"></span>
+        <span><img class="brand-mark brand-matte" src="../assets/logos/sakhalin-energy.webp" alt="Сахалинская Энергия"></span>
+        <span><img src="../assets/logos/mosinzhproekt.svg" alt="Мосинжпроект" style="max-height:50px"></span>
+        <span><img src="../assets/logos/capital-group.webp" alt="Capital Group"></span>
+        <span class="lt"><img src="../assets/logos/ixcellerate.webp" alt="">IXcellerate</span>
+        <span class="wm">Газпромтранс</span>
+        <span class="wm">Арктикгаз</span>
+        <span class="lt"><img src="../assets/logos/krasnodar-coat.svg" alt="">ЦИТ Краснодарского края</span>
+        <span class="wm">АвтоАльянс</span>
+        <span class="more">и&nbsp;ещё 40+</span>
+      </div>
     </div>
   </div>
   <div class="foot"><span></span><span class="pg"></span></div>
