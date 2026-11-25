@@ -6,7 +6,7 @@
 <meta name="color-scheme" content="only dark">
 <meta name="darkreader-lock">
 <meta name="theme-color" content="#000413">
-<title>Пульт – презентация</title>
+<title>Пульт. Общая презентация – версия 1</title>
 <meta name="robots" content="noindex">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
@@ -658,6 +658,31 @@ html.js .slide:not(.active) .tl-line i { width: 0; }
 .tl-line i { transition: width 1s cubic-bezier(.2,.7,.2,1) .3s; }
 @media print { .tl-line i { box-shadow: none; } html.js .slide:not(.active) .tl-line i { width: 445px; } }
 </style>
+
+<style>
+.ui .deck-versions {
+  display: inline-flex; align-items: center; gap: 2px; padding: 3px;
+  border: 1px solid #5b6277; border-radius: 10px; background: #0b1122; opacity: 1;
+  color: #fff; font: 700 13px var(--f-sans); white-space: nowrap;
+}
+.deck-versions > * {
+  display: flex; align-items: center; min-height: 34px; padding: 0 10px; border-radius: 6px;
+}
+.deck-versions [aria-current] { background: #343d56; }
+.deck-versions a { color: #fff; text-decoration: underline; text-underline-offset: 3px; }
+.deck-versions a:hover { background: #4d2340; }
+@media (max-width: 560px) {
+  .ui { gap: 4px; }
+  .ui button { width: 36px; }
+  .ui .cnt { min-width: 42px; font-size: 12px; }
+  .ui .dl { padding: 0 8px; }
+  .ui .deck-versions { font-size: 11px; }
+  .deck-versions > * { padding: 0 6px; }
+}
+@media (max-width: 360px) {
+  .ui .deck-versions { position: absolute; bottom: 50px; left: 50%; transform: translateX(-50%); }
+}
+</style>
 </head>
 <body>
 <div class="progress" id="progress"></div>
@@ -1087,6 +1112,7 @@ html.js .slide:not(.active) .tl-line i { width: 0; }
 </div>
 
 <div class="ui" aria-label="Навигация по слайдам">
+  <div class="deck-versions" role="group" aria-label="Версии презентации"><span aria-current="page">Версия 1</span><a id="deck-version-link" href="./v2/#cover">Версия 2</a></div>
   <button id="prev" aria-label="Предыдущий слайд">←</button>
   <span class="cnt" id="cnt"></span>
   <button id="next" aria-label="Следующий слайд">→</button>
@@ -1136,6 +1162,7 @@ html.js .slide:not(.active) .tl-line i { width: 0; }
     document.getElementById('progress').style.width = ((cur + 1) / slides.length * 100) + '%';
     document.getElementById('dl').classList.toggle('on-poster', slides[cur].classList.contains('poster'));
     var h = '#' + slides[cur].id;
+    document.getElementById('deck-version-link').hash = h;
     if (location.hash !== h) history.replaceState(null, '', location.pathname + location.search + h);
   }
   function go(id) { var i = slides.findIndex(function (s) { return s.id === id; }); if (i > -1) show(i); }
