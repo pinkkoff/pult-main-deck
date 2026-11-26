@@ -6,7 +6,7 @@
 <meta name="color-scheme" content="only dark">
 <meta name="darkreader-lock">
 <meta name="theme-color" content="#000413">
-<title>Пульт. Общая презентация – версия 1</title>
+<title>Пульт. Общая презентация</title>
 <meta name="robots" content="noindex">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
@@ -657,31 +657,107 @@ html.js .slide.active .ag-atk .ag-grid span { animation: ag-own .4s ease forward
 html.js .slide:not(.active) .tl-line i { width: 0; }
 .tl-line i { transition: width 1s cubic-bezier(.2,.7,.2,1) .3s; }
 @media print { .tl-line i { box-shadow: none; } html.js .slide:not(.active) .tl-line i { width: 445px; } }
-</style>
+#questions .h2 { max-width: 30ch; }
+#questions .qs { width: 1370px; grid-template-columns: 1.15fr 1fr; gap: 58px 76px; }
+#questions .qs li { font-size: 34px; }
+#questions .qs li:first-child { font-size: 38px; }
+#questions .qs li span { display: block; margin-top: 8px; color: var(--muted); font-size: 23px; font-weight: 500; }
 
-<style>
-.ui .deck-versions {
-  display: inline-flex; align-items: center; gap: 2px; padding: 3px;
-  border: 1px solid #5b6277; border-radius: 10px; background: #0b1122; opacity: 1;
-  color: #fff; font: 700 13px var(--f-sans); white-space: nowrap;
+#what .h2 { font-size: 55px; }
+#what .sch-core { justify-content: center; }
+#what .sch-n:not(.out) b { font-size: 20px; }
+#what .sch-n strong { color: var(--ink); }
+#what .sch-n .mono { font-size: 17px; }
+
+#arch .hosts li {
+  width: 300px; height: 38px; display: flex; align-items: center; justify-content: space-between;
+  padding: 0 10px 0 16px; border-radius: 10px; background: #1a2033;
+  box-shadow: inset 0 0 0 1px rgba(234,238,255,.1);
+  font: 400 17px var(--f-mono); color: var(--ink);
 }
-.deck-versions > * {
-  display: flex; align-items: center; min-height: 34px; padding: 0 10px; border-radius: 6px;
+#arch .hosts b, #arch .hosts em { padding: 3px 9px; border-radius: 5px; font-size: 15px; font-style: normal; }
+#arch .hosts b { background: rgba(255,72,72,.18); color: #ff9b9b; }
+#arch .hosts em { color: var(--muted); }
+#arch .srv { gap: 11px; }
+#arch .srv h3 { font-size: 33px; }
+#arch .srv .nodes { grid-template-columns: 1fr; margin-top: 6px; }
+#arch .srv .nodes div { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+#arch .srv .nodes b { font-size: 20px; }
+#arch .srv .nodes div:first-child span { color: #ff9b9b; }
+
+.reg-intro { margin-top: 22px; font-size: 27px; color: var(--muted); }
+.reg-v2 { display: grid; grid-template-columns: minmax(0, 2.1fr) minmax(0, 1fr); gap: 52px; margin-top: 46px; }
+.reg-criteria { width: 100%; border-collapse: collapse; text-align: left; }
+.reg-criteria caption { text-align: left; font-size: 30px; font-weight: 700; margin-bottom: 18px; }
+.reg-criteria th, .reg-criteria td { padding: 16px 20px; border-bottom: 1px solid var(--line); }
+.reg-criteria thead { background: #222940; font-size: 18px; color: var(--muted); }
+.reg-criteria tbody th { width: 33%; font-size: 22px; }
+.reg-criteria tbody td { font-size: 22px; color: #d6d9e4; }
+.reg-targets { align-self: end; padding: 23px 26px; background: #171d31; border-radius: 20px; }
+.reg-targets h3 { font-size: 24px; }
+.reg-targets p { margin-top: 8px; color: var(--muted); font-size: 17px; }
+.reg-targets dl { margin: 13px 0 12px; }
+.reg-targets dl > div { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 6px 0; border-bottom: 1px solid var(--line); }
+.reg-targets dt { font-size: 17px; }
+.reg-targets dd { margin: 0; font: 400 29px var(--f-mono); color: #ff8a8a; }
+.reg-targets a { font-size: 16px; color: var(--muted); text-underline-offset: 4px; }
+.reg-order {
+  padding: 20px 28px; margin-top: 30px; border-left: 4px solid var(--acc); background: var(--tint);
+  font-size: 22px; line-height: 1.45;
 }
-.deck-versions [aria-current] { background: #343d56; }
-.deck-versions a { color: #fff; text-decoration: underline; text-underline-offset: 3px; }
-.deck-versions a:hover { background: #4d2340; }
-@media (max-width: 560px) {
-  .ui { gap: 4px; }
-  .ui button { width: 36px; }
-  .ui .cnt { min-width: 42px; font-size: 12px; }
-  .ui .dl { padding: 0 8px; }
-  .ui .deck-versions { font-size: 11px; }
-  .deck-versions > * { padding: 0 6px; }
+.reg-order a { color: #ff9b9b; font-weight: 700; text-underline-offset: 5px; }
+
+.mig-v2 { margin-top: 62px; }
+.mig-numbers { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 26px; }
+.mig-numbers .card { display: grid; grid-template-rows: auto auto 1fr; gap: 16px; padding: 32px 36px 36px; }
+.mig-numbers .stat { color: var(--acc); font-size: 79px; line-height: 1; font-weight: 700; }
+.mig-numbers .stat small { color: var(--ink); font-size: 30px; }
+.mig-numbers h3 { font-size: 27px; }
+.mig-numbers p:not(.stat) { font-size: 24px; }
+.mig-transfer { display: grid; grid-template-columns: minmax(0, 1fr) 230px; gap: 52px; align-items: center; margin-top: 54px; padding-top: 28px; border-top: 1px solid var(--line); }
+.mig-transfer h3 { margin-bottom: 20px; font-size: 28px; }
+.mig-transfer .chips { gap: 12px; }
+.mig-transfer .chip { font-size: 21px; }
+.mig-qr { display: grid; justify-items: center; gap: 12px; color: var(--ink); font-size: 17px; text-align: center; text-underline-offset: 4px; }
+.mig-qr img { width: 112px; height: 112px; padding: 7px; border-radius: 8px; background: #fff; image-rendering: pixelated; }
+
+#support .recognition {
+  display: grid; grid-template-columns: 450px minmax(0, 1fr); gap: 72px;
+  margin-top: 58px; min-height: 540px;
 }
-@media (max-width: 360px) {
-  .ui .deck-versions { position: absolute; bottom: 50px; left: 50%; transform: translateX(-50%); }
+#support .aw { grid-template-columns: minmax(0, 1fr); grid-template-rows: repeat(3, 1fr); gap: 22px; margin: 0; }
+#support .aw li { padding: 20px 0 0; }
+#support .aw b { font-size: 46px; }
+#support .aw span { margin-top: 10px; font-size: 21px; }
+#support .cl-wall {
+  align-self: stretch; margin: 0; color: var(--ink); padding: 32px 44px 36px; gap: 24px;
+  background: linear-gradient(135deg, rgba(91,110,157,.34), rgba(67,80,116,.19));
+  border: 1px solid rgba(208,219,248,.24); box-shadow: inset 0 1px 0 rgba(255,255,255,.05);
 }
+#support .cl-k {
+  font-size: 32px; letter-spacing: 0; text-align: left; text-transform: none; color: var(--ink);
+}
+#support .cl-logos { grid-template-columns: repeat(4, minmax(0, 1fr)); grid-auto-rows: 1fr; gap: 10px 24px; }
+#support .cl-logos > span { height: 80px; }
+#support .cl-logos .more { grid-column: 3 / -1; }
+@media print {
+  #support .cl-wall { background: #181e32; box-shadow: none; }
+  #support .cl-logos img { filter: brightness(0) invert(.91) !important; }
+  #support .cl-logos img.brand-mark { filter: grayscale(1) invert(1) brightness(1.25) !important; }
+  #support .cl-logos .lt img { filter: grayscale(1) brightness(1.5) !important; }
+}
+#support .cl-logos > span { min-width: 0; }
+#support .cl-logos img { filter: brightness(0) invert(.91); max-width: 95%; }
+#support .cl-logos img.brand-mark { filter: grayscale(1) invert(1) brightness(1.25); max-height: 52px; }
+#support .cl-logos img.brand-matte { mix-blend-mode: screen; max-height: 86px; }
+#support .cl-logos .lt, #support .cl-logos .wm { color: #e2e5f0; }
+#support .cl-logos .lt img { filter: grayscale(1) brightness(1.5); }
+#support .cl-logos .more { color: #ff8a8a; }
+
+@media (prefers-reduced-motion: reduce), print {
+  #what .sch-l path, #arch .sch-l path { animation: none; }
+}
+
 </style>
 </head>
 <body>
@@ -710,12 +786,11 @@ html.js .slide:not(.active) .tl-line i { width: 0; }
   <div class="top"><div class="eyebrow">Сначала о&nbsp;вас</div><img src="assets/pult-horizontal-on-dark.svg" alt="Пульт" class="logo"></div>
   <h2 class="h2 rv">Расскажите о&nbsp;своём мониторинге, чтобы говорить о&nbsp;ваших задачах</h2>
   <ol class="qs">
-    <li class="rv" style="--d:60ms">У&nbsp;вас Zabbix?</li>
+    <li class="rv" style="--d:60ms">Вы используете Zabbix? Если да, то&nbsp;какой версии?</li>
     <li class="rv" style="--d:110ms">Есть&nbsp;ли требования к&nbsp;ПО из&nbsp;реестра или&nbsp;с&nbsp;сертификатом ФСТЭК?</li>
-    <li class="rv" style="--d:160ms">Насколько большая инсталляция: NVPS, узлы, прокси, объекты мониторинга?</li>
+    <li class="rv" style="--d:160ms"><div>Каков масштаб мониторинга?<span>NVPS, узлы, прокси, объекты. Есть&nbsp;ли HA-кластер или&nbsp;DR-площадка?</span></div></li>
     <li class="rv" style="--d:210ms">Что не&nbsp;устраивает в&nbsp;Zabbix сейчас?</li>
   </ol>
-  <img class="art rv" style="--d:200ms" src="assets/art/crystal-stand.webp" alt="">
   <div class="foot"><span></span><span class="pg"></span></div>
 </section>
 
@@ -725,24 +800,22 @@ html.js .slide:not(.active) .tl-line i { width: 0; }
 
 <section class="slide g-blue" id="what" data-title="Что умеет Пульт">
   <div class="top"><div class="eyebrow"><span class="n">01</span>Что такое Пульт</div><img src="assets/pult-horizontal-on-dark.svg" alt="Пульт" class="logo"></div>
-  <h2 class="h2 rv" style="max-width:none">Весь цикл мониторинга в&nbsp;одной системе</h2>
+  <h2 class="h2 rv" style="max-width:none">Единый взгляд на&nbsp;мониторинг ИТ-инфраструктуры</h2>
   <div class="sch rv" style="--d:80ms">
     <svg class="sch-l" viewBox="0 0 1680 600" preserveAspectRatio="none" aria-hidden="true">
-      <path d="M300 77 C360 77 360 175 420 175"/><path d="M300 141 C360 141 360 175 420 175"/><path d="M300 205 C360 205 360 175 420 175"/><path d="M300 269 C360 269 360 175 420 175"/>
-      <path d="M300 333 C360 333 360 425 420 425"/><path d="M300 397 C360 397 360 425 420 425"/><path d="M300 461 C360 461 360 425 420 425"/><path d="M300 525 C360 525 360 425 420 425"/>
+      <path d="M300 77 H345 M300 141 H345 M300 205 H345 M300 269 H345 M300 333 H345 M300 397 H345 M300 461 H345 M300 525 H345 M345 77 V525 M345 175 H420 M345 425 H420"/>
       <path class="hot" d="M700 175 C760 175 760 300 820 300"/><path class="hot" d="M700 425 C760 425 760 300 820 300"/>
       <path class="hot" d="M1220 300 C1280 300 1280 95 1340 95"/><path class="hot" d="M1220 300 C1280 300 1280 231 1340 231"/><path class="hot" d="M1220 300 C1280 300 1280 367 1340 367"/><path class="hot" d="M1220 300 C1280 300 1280 503 1340 503"/>
     </svg>
     <p class="k sch-h" style="left:0">Что мониторит</p>
     <p class="k sch-h" style="left:420px">Как собирает</p>
-    <p class="k sch-h" style="left:820px">Пульт</p>
+    <p class="k sch-h" style="left:820px">Обработка данных</p>
     <p class="k sch-h" style="left:1340px">Что получаете</p>
     <ul class="sch-obj"><li>Сеть</li><li>Серверы</li><li>Базы данных</li><li>Приложения и&nbsp;web</li><li>СХД</li><li>Виртуализация и&nbsp;контейнеры</li><li>Инженерные системы</li><li>Логи</li></ul>
-    <div class="sch-n" style="left:420px;top:115px;height:120px"><b>Агент Пульта</b><span>Windows, Linux, Unix, Astra Linux, РЕД&nbsp;ОС</span></div>
-    <div class="sch-n" style="left:420px;top:355px;height:140px"><b>Без агента</b><span class="mono">SNMP · IPMI · JMX ODBC · SSH · HTTP</span></div>
-    <div class="sch-core" style="left:820px;top:60px;height:480px">
-      <img src="assets/pult-horizontal-on-dark.svg" alt="Пульт">
-      <ol><li><i>1</i><div><b>Хранит</b><span>История и&nbsp;тренды, PostgreSQL или&nbsp;ClickHouse</span></div></li><li><i>2</i><div><b>Находит проблемы</b><span>Правила, аномалии, первопричины</span></div></li><li><i>3</i><div><b>Прогнозирует</b><span>Сбои и&nbsp;нехватку ресурсов заранее</span></div></li></ol>
+    <div class="sch-n" style="left:420px;top:107px;height:136px"><b>Агентский мониторинг</b><span><strong>Агент</strong> · Windows, Linux, Unix, Astra Linux, РЕД&nbsp;ОС</span></div>
+    <div class="sch-n" style="left:420px;top:355px;height:140px"><b>Безагентский мониторинг</b><span class="mono">SNMP · IPMI · JMX · ODBC · SSH · HTTP · ICMP · Telnet</span></div>
+    <div class="sch-core" style="left:820px;top:100px;height:400px">
+      <ol><li><i>1</i><div><b>Хранение</b><span>История и&nbsp;тренды, PostgreSQL или&nbsp;ClickHouse</span></div></li><li><i>2</i><div><b>Обнаружение проблем</b><span>Правила, аномалии, первопричины</span></div></li><li><i>3</i><div><b>Прогнозирование</b><span>Сбои и&nbsp;нехватку ресурсов заранее</span></div></li></ol>
     </div>
     <div class="sch-n out" style="left:1340px;top:45px"><b>Оповещения</b><span>Почта, SMS, мессенджеры, эскалации</span></div>
     <div class="sch-n out" style="left:1340px;top:181px"><b>Дашборды и&nbsp;карты</b><span>Состояние в&nbsp;реальном времени</span></div>
@@ -754,7 +827,7 @@ html.js .slide:not(.active) .tl-line i { width: 0; }
 
 <section class="slide g-tl" id="arch" data-title="Архитектура">
   <div class="top"><div class="eyebrow"><span class="n">01</span>Что такое Пульт · архитектура</div><img src="assets/pult-horizontal-on-dark.svg" alt="Пульт" class="logo"></div>
-  <h2 class="h2 rv" style="max-width:none">Агенты, прокси и&nbsp;отказоустойчивый сервер</h2>
+  <h2 class="h2 rv" style="max-width:none">Компоненты и&nbsp;как они работают</h2>
   <div class="sch rv" style="--d:80ms">
     <svg class="sch-l" viewBox="0 0 1680 600" preserveAspectRatio="none" aria-hidden="true">
       <path d="M330 89 C360 89 360 150 390 150"/><path d="M330 139 C360 139 360 150 390 150"/><path d="M330 189 C360 189 360 150 390 150"/>
@@ -764,27 +837,26 @@ html.js .slide:not(.active) .tl-line i { width: 0; }
     </svg>
     <div class="zone" style="left:0;top:0;width:580px;height:270px"><p class="k">Филиал или&nbsp;закрытый контур</p></div>
     <div class="zone" style="left:0;top:310px;width:580px;height:270px"><p class="k">Основной ЦОД</p></div>
-    <div class="hosts" style="left:30px;top:70px"><span>srv-11</span><span>db-12</span><span>sw-13</span></div>
-    <div class="hosts" style="left:30px;top:380px"><span>app-01</span><span>pg-01</span><span>esxi-03</span></div>
+    <ul class="hosts" style="left:30px;top:70px"><li>srv-11 <b>Агент</b></li><li>db-12 <b>Агент</b></li><li>sw-13 <em>Без агента</em></li></ul>
+    <ul class="hosts" style="left:30px;top:380px"><li>app-01 <b>Агент</b></li><li>pg-01 <b>Агент</b></li><li>esxi-03 <em>Без агента</em></li></ul>
     <div class="sch-n" style="left:390px;top:95px;width:170px;height:110px"><b>Прокси</b><span>Буфер при&nbsp;обрыве</span></div>
-    <div class="sch-core srv" style="left:720px;top:90px;width:380px;height:420px">
-      <p class="k">Пульт сервер</p>
-      <div class="nodes"><div><b>Узел 1</b><span>активный</span></div><div><b>Узел 2</b><span>резерв</span></div></div>
-      <ul class="ticks"><li>Обнаружение проблем и&nbsp;оповещения</li><li>Визуализация и&nbsp;отчёты</li><li>Отказоустойчивый кластер</li></ul>
+    <div class="sch-core srv" style="left:720px;top:138px;width:380px;height:324px">
+      <h3>Ядро Пульта</h3><p class="k">Отказоустойчивый кластер</p>
+      <div class="nodes"><div><b>Пульт-сервер 1</b><span>активный</span></div><div><b>Пульт-сервер 2</b><span>резервный</span></div></div>
     </div>
-    <div class="sch-n out" style="left:1240px;top:45px;height:120px"><b>PostgreSQL + ClickHouse</b><span>Конфигурация и&nbsp;история, ClickHouse – при&nbsp;больших объёмах</span></div>
-    <div class="sch-n out" style="left:1240px;top:240px;height:120px"><b>Веб-интерфейс и&nbsp;API</b><span>Дежурные, Графиня, ITSM, SIEM</span></div>
-    <div class="sch-n out dr" style="left:1240px;top:435px;height:120px"><b>DR-площадка</b><span>Резервный ЦОД на&nbsp;случай аварии</span></div>
+    <div class="sch-n out" style="left:1240px;top:45px;height:120px"><b>Хранилище</b><span>Конфигурация и&nbsp;история в&nbsp;PostgreSQL. ClickHouse для&nbsp;больших объёмов истории</span></div>
+    <div class="sch-n out" style="left:1240px;top:240px;height:120px"><b>Веб-интерфейс и&nbsp;API</b><span>Дежурные, диагностическая площадка<br>Графиня, ITSM, SIEM</span></div>
+    <div class="sch-n out dr" style="left:1240px;top:435px;height:120px"><b>Резервный контур</b><span>DR-площадка на&nbsp;случай аварии в&nbsp;основном ЦОД</span></div>
   </div>
-  <p class="sch-leg rv" style="--d:140ms"><span><i></i>агент Пульта на&nbsp;хосте</span><span>Ядро Zabbix 7.x · установка пакетами или&nbsp;в&nbsp;Docker</span></p>
+  <p class="sch-leg rv" style="--d:140ms"><span>Ядро Zabbix 7.x · установка пакетами или&nbsp;в&nbsp;Docker</span></p>
   <div class="foot"><span></span><span class="pg"></span></div>
 </section>
 
 <section class="slide g-blue" id="scenarios" data-title="Сценарии использования">
   <div class="top"><div class="eyebrow"><span class="n">01</span>Что такое Пульт · сценарии</div><img src="assets/pult-horizontal-on-dark.svg" alt="Пульт" class="logo"></div>
-  <h2 class="h2 rv" style="max-width:none">Не&nbsp;только «сервер упал»: шесть сценариев</h2>
+  <h2 class="h2 rv" style="max-width:none">Шесть сценариев мониторинга</h2>
   <ol class="sc6 rv" style="--d:80ms">
-    <li><b>Инфраструктура</b><span>Аномалии, причины и&nbsp;прогноз аварий</span></li>
+    <li><b>Инфраструктура</b><span>Правила, аномалии, причины и&nbsp;прогноз аварий</span></li>
     <li><b>ИТ-услуги и&nbsp;SLA</b><span>Состояние бизнес-сервисов</span></li>
     <li><b>Мощности</b><span>Планирование ресурсов и&nbsp;бюджетов</span></li>
     <li><b>Инвентаризация</b><span>Что стоит на&nbsp;самом деле</span></li>
@@ -808,53 +880,46 @@ html.js .slide:not(.active) .tl-line i { width: 0; }
 
 <section class="slide band" id="regulation" data-title="Требования регуляторов">
   <div class="top"><div class="eyebrow"><span class="n">02</span>Почему Пульт · импортозамещение</div><img src="assets/pult-horizontal-on-dark.svg" alt="Пульт" class="logo"></div>
-  <h2 class="h2 rv" style="max-width:none">До&nbsp;конца 2027&nbsp;года компании должны заменить мониторинг на&nbsp;open source, такой как&nbsp;Zabbix, на&nbsp;ПО из&nbsp;реестра РФ</h2>
-  <div class="reg">
-    <div class="card reg-card rv" style="--d:80ms">
-      <p class="k">Класс ПО 02.08 · средства мониторинга и&nbsp;управления</p>
+  <h2 class="h2 rv" style="max-width:none">Переход на&nbsp;российское ПО для&nbsp;мониторинга</h2>
+  <p class="reg-intro rv">Для госкомпаний к&nbsp;2027&nbsp;году ориентир по&nbsp;классу 02.08 – 100% российского ПО из&nbsp;реестра.</p>
+  <div class="reg-v2 rv" style="--d:80ms">
+    <table class="reg-criteria">
+      <caption>Что проверить при&nbsp;выборе системы мониторинга</caption>
+      <thead><tr><th scope="col">Критерий</th><th scope="col">Что проверять</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Уязвимости</th><td>Мониторинг CVE и&nbsp;выпуск исправлений</td></tr>
+        <tr><th scope="row">Обновления</th><td>Контролируемая установка новых версий</td></tr>
+        <tr><th scope="row">Поддержка</th><td>Канал поддержки и&nbsp;порядок эскалации ошибок</td></tr>
+        <tr><th scope="row">Происхождение ПО</th><td>Запись в&nbsp;реестре российского ПО</td></tr>
+        <tr><th scope="row">Сертификация</th><td>Сертификат ФСТЭК с&nbsp;уровнем доверия не&nbsp;ниже 4-го, если требуется</td></tr>
+      </tbody>
+    </table>
+    <div class="reg-targets">
       <h3>Доля российского ПО в&nbsp;госкомпаниях</h3>
-      <p class="src">Целевые показатели перехода госкомпаний на&nbsp;российское ПО до&nbsp;2027&nbsp;года. Минцифры России, методические рекомендации по&nbsp;цифровой трансформации госкорпораций и&nbsp;компаний с&nbsp;госучастием, 2025, приложение №&nbsp;4</p>
-      <div class="reg-bars"><div><b>95%</b><i style="--h:50%"></i></div><div><b>97%</b><i style="--h:70%"></i></div><div><b>100%</b><i style="--h:100%"></i></div><div class="kii"><b>100%</b><i style="--h:100%"></i></div></div>
-      <div class="reg-names"><span>2025, H2</span><span>2026</span><span>2027</span><span>Значимые объекты КИИ, 2025–2027</span></div>
-      <p class="reg-axis">Шкала от&nbsp;90%</p>
-    </div>
-    <div class="rv" style="--d:160ms">
-      <p class="k" style="margin-bottom:16px">Что требуют КИИ и&nbsp;enterprise</p>
-      <ol class="req">
-        <li><span class="oct-n">1</span>Управление уязвимостями и&nbsp;контроль CVE</li>
-        <li><span class="oct-n">2</span>Контролируемые обновления</li>
-        <li><span class="oct-n">3</span>Поддержка и&nbsp;маршрут эскалации багов</li>
-        <li><span class="oct-n">4</span>ПО из&nbsp;реестра российского ПО</li>
-        <li><span class="oct-n">5</span>Сертификат ФСТЭК, 4&nbsp;уровень доверия и&nbsp;выше</li>
-      </ol>
-      <p class="req-note">С&nbsp;1&nbsp;марта 2026&nbsp;года для&nbsp;ГИС действует <b>приказ ФСТЭК России №&nbsp;117</b>.</p>
-      <a class="reg-qr" href="https://adm.digital.gov.ru/app/uploads/2025/07/cdef3a_metodicheskie-rekomendaczii-po-czifrovoj-transformaczii-gosudarstvennyh-korporaczij-i-kompanij-s-gosudarstvennym-uchastiem.pdf" target="_blank" rel="noopener"><img src="assets/misc/qr-mintsifry.png" alt="QR-код документа Минцифры"><span>Методические рекомендации Минцифры, PDF</span></a>
+      <p>Класс 02.08 · средства мониторинга и&nbsp;управления</p>
+      <dl><div><dt>II полугодие 2025</dt><dd>95%</dd></div><div><dt>2026</dt><dd>97%</dd></div><div><dt>2027</dt><dd>100%</dd></div><div><dt>Значимые объекты КИИ<br>2025–2027</dt><dd>100%</dd></div></dl>
+      <a href="https://base.garant.ru/412426674/172a6d689833ce3e42dc0a8a7b3cddf9/" target="_blank" rel="noopener">Рекомендации Минцифры, прил. 4 ↗</a>
     </div>
   </div>
+  <p class="reg-order rv" style="--d:140ms"><a href="https://www.consultant.ru/document/cons_doc_LAW_507869/" target="_blank" rel="noopener">Приказ ФСТЭК России №&nbsp;117</a> с&nbsp;1&nbsp;марта 2026&nbsp;года устанавливает требования к&nbsp;защите информации в&nbsp;ГИС и&nbsp;других ИС госорганов, ГУП и&nbsp;госучреждений.</p>
   <div class="foot"><span></span><span class="pg"></span></div>
 </section>
 
 <section class="slide g-br" id="migration" data-title="Переезд с Zabbix">
   <div class="top"><div class="eyebrow"><span class="n">02</span>Почему Пульт · импортозамещение</div><img src="assets/pult-horizontal-on-dark.svg" alt="Пульт" class="logo"></div>
-  <h2 class="h2 rv" style="max-width:none">Переезд с&nbsp;Zabbix за&nbsp;неделю без&nbsp;потери наработок</h2>
-  <div class="mig">
-    <div class="mig-l">
-      <div class="mig-stats rv" style="--d:60ms">
-        <div class="card t"><p class="stat">&lt;&nbsp;7<small>дней</small></p><span>простая и&nbsp;быстрая миграция</span></div>
-        <a class="card tplc" href="https://docs.pult.tech/templates/" target="_blank" rel="noopener"><div><p class="stat" style="color:var(--acc)">350+</p><span>шаблонов в&nbsp;реестре, в&nbsp;том числе под&nbsp;российские системы</span></div><img src="assets/misc/qr-templates.png" alt="QR-код реестра шаблонов"></a>
-      </div>
-      <ul class="ticks rv" style="--d:120ms">
-        <li><b>Не&nbsp;нужно переустанавливать агентов</b> и&nbsp;перенастраивать мониторинг</li>
-        <li><b>Не&nbsp;нужно переучиваться</b> и&nbsp;переделывать процессы</li>
-        <li><b>Сохраняются экспертиза и&nbsp;все настройки</b> команды</li>
-      </ul>
-      <div class="rv" style="--d:180ms"><p class="k" style="margin-bottom:14px">Что переносится</p><div class="chips"><span class="chip on">Всё</span><span class="chip">Дашборды</span><span class="chip">Шаблоны</span><span class="chip">Оповещения</span><span class="chip">Узлы сети</span><span class="chip">Обнаружения</span><span class="chip">Действия</span><span class="chip">Данные мониторинга</span></div></div>
+  <h2 class="h2 rv" style="max-width:none">Как сохранить наработки при&nbsp;переезде с&nbsp;Zabbix</h2>
+  <div class="mig-v2">
+    <div class="mig-numbers rv" style="--d:60ms">
+      <div class="card t"><p class="stat">&lt;&nbsp;7 <small>дней</small></p><h3>Типовой переход</h3><p>Агенты остаются на&nbsp;месте, настройки мониторинга переносятся.</p></div>
+      <div class="card"><p class="stat">350+</p><h3>Шаблонов</h3><p>В&nbsp;том числе для&nbsp;российских систем.</p></div>
+      <div class="card"><p class="stat">&lt;&nbsp;2 <small>месяцев</small></p><h3>Внедрение в&nbsp;Capital Group</h3><p>Отказоустойчивая архитектура и&nbsp;сохранение истории.</p></div>
     </div>
-    <div class="card case-mini rv" style="--d:220ms">
-      <p class="k">Пример · Capital Group</p>
-      <h3>Переход с&nbsp;сохранением всей истории</h3>
-      <p class="stat">&lt;&nbsp;2<small>месяцев</small></p>
-      <ul class="ticks"><li>Внедрение в&nbsp;отказоустойчивой архитектуре</li><li>Настройки мониторинга переиспользованы</li><li>Прошлая статистика сохранена</li></ul>
+    <div class="mig-transfer rv" style="--d:120ms">
+      <div>
+        <h3>Что переносится</h3>
+        <div class="chips"><span class="chip">Дашборды</span><span class="chip">Шаблоны</span><span class="chip">Оповещения</span><span class="chip">Узлы сети</span><span class="chip">Правила обнаружения</span><span class="chip">Действия</span><span class="chip">Данные мониторинга</span></div>
+      </div>
+      <a class="mig-qr" href="https://docs.pult.tech/templates/" target="_blank" rel="noopener"><img src="assets/misc/qr-templates.png" alt=""><span>Открыть реестр шаблонов ↗</span></a>
     </div>
   </div>
   <div class="foot"><span></span><span class="pg"></span></div>
@@ -895,10 +960,10 @@ html.js .slide:not(.active) .tl-line i { width: 0; }
   <div class="sl-facts rv" style="--d:40ms;margin-top:20px"><div><b>Каждый релиз</b><span>полный цикл проверок</span></div><div><b>Каждый день</b><span>мониторинг новых CVE</span></div></div>
   <div class="sl-main">
     <div class="sl-stack rv" style="--d:100ms">
-      <div class="sl-layer"><div class="sl-name"><h3>Исходный код</h3><p>Пульт и&nbsp;открытое ядро Zabbix</p></div><div class="sl-tags"><span>SAST</span><span>Secrets</span></div><p class="sl-catch">Уязвимые конструкции и&nbsp;забытые ключи</p></div>
-      <div class="sl-layer"><div class="sl-name"><h3>Зависимости</h3><p>Сторонние библиотеки и&nbsp;компоненты</p></div><div class="sl-tags"><span>SCA</span></div><p class="sl-catch">Известные CVE в&nbsp;день публикации</p></div>
-      <div class="sl-layer"><div class="sl-name"><h3>Агент и&nbsp;образы</h3><p>Агент для&nbsp;Windows, Linux, Unix и&nbsp;Docker-образы</p></div><div class="sl-tags"><span>Images</span></div><p class="sl-catch">Уязвимые пакеты и&nbsp;небезопасные настройки</p></div>
-      <div class="sl-layer"><div class="sl-name"><h3>Работающая система</h3><p>Сервер, API, веб-интерфейс</p></div><div class="sl-tags"><span>DAST</span><span>Fuzzing</span></div><p class="sl-catch">Атаки снаружи и&nbsp;сбои на&nbsp;неожиданных данных</p></div>
+      <div class="sl-layer"><div class="sl-name"><h3>Код Пульта и&nbsp;Zabbix</h3></div><div class="sl-tags"><span>SAST</span><span>Secrets</span></div><p class="sl-catch">Уязвимые конструкции и&nbsp;забытые ключи</p></div>
+      <div class="sl-layer"><div class="sl-name"><h3>Сторонние библиотеки</h3></div><div class="sl-tags"><span>SCA</span></div><p class="sl-catch">Известные CVE в&nbsp;день публикации</p></div>
+      <div class="sl-layer"><div class="sl-name"><h3>Агент и&nbsp;Docker-образы</h3></div><div class="sl-tags"><span>Images</span></div><p class="sl-catch">Уязвимые пакеты и&nbsp;небезопасные настройки</p></div>
+      <div class="sl-layer"><div class="sl-name"><h3>Сервер, API, веб-интерфейс</h3></div><div class="sl-tags"><span>DAST</span><span>Fuzzing</span></div><p class="sl-catch">Атаки снаружи и&nbsp;сбои на&nbsp;неожиданных данных</p></div>
     </div>
     <div class="sl-panel rv" style="--d:160ms">
       <p class="k">Если что-то найдено</p>
@@ -1009,7 +1074,7 @@ html.js .slide:not(.active) .tl-line i { width: 0; }
   </div>
   <ol class="links rv" style="--d:140ms">
     <li><span class="oct-n">1</span><div><b>Данные Пульта</b>подключаются в&nbsp;Графине как&nbsp;источник</div></li>
-    <li><span class="oct-n">2</span><div><b>Ресурсно-сервисная модель</b>строится по&nbsp;данным Пульта</div></li>
+    <li><span class="oct-n">2</span><div><b>Ресурсно-сервисная модель</b>Граф сервисов и&nbsp;их состояние обновляются по&nbsp;данным Пульта</div></li>
     <li><span class="oct-n">3</span><div><b>Из&nbsp;витрины в&nbsp;Пульт</b>переход к&nbsp;деталям проблемы</div></li>
     <li><span class="oct-n">4</span><div><b>Один вендор</b>одна поддержка на&nbsp;обе системы</div></li>
   </ol>
@@ -1024,7 +1089,7 @@ html.js .slide:not(.active) .tl-line i { width: 0; }
     <div class="card rv" style="--d:60ms"><span class="yr">Транспорт</span><h3>Аэропорт Шереметьево</h3><div class="st"><div><b>10&nbsp;500+</b><span>узлов</span></div><div><b>250&nbsp;000+</b><span>элементов данных</span></div><div><b>750+</b><span>шаблонов мониторинга</span></div></div><a class="more" href="https://www.cnews.ru/news/top/2026-05-14_sheremetevo_otkazyvaetsya" target="_blank" rel="noopener">CNews →</a></div>
     <div class="card rv" style="--d:100ms"><span class="yr">Телеком</span><h3>Т2</h3><div class="st"><div><b>10&nbsp;000+</b><span>узлов</span></div><div><b>3&nbsp;ЦОДа</b><span>HA-кластер, больше 10&nbsp;прокси</span></div><div><b>300+</b><span>шаблонов мониторинга</span></div></div><a class="more" href="https://companies.rbc.ru/news/GYjWoRLNb2/t2-vnedrila-katastrofoustojchivuyu-sistemu-monitoringa-na-baze-pulta/" target="_blank" rel="noopener">РБК Компании →</a></div>
     <div class="card rv" style="--d:140ms"><span class="yr">Госсектор</span><h3>ЦИТ Краснодарского края</h3><div class="st"><div><b>1&nbsp;086</b><span>активных узлов</span></div><div><b>75&nbsp;000</b><span>элементов данных</span></div><div><b>130</b><span>шаблонов мониторинга</span></div></div><a class="more" href="https://gov.cnews.ru/news/line/2025-10-01_sistema_pult_obespechivaet" target="_blank" rel="noopener">CNews →</a></div>
-    <div class="card rv" style="--d:180ms"><span class="yr">Девелопмент</span><h3>Capital Group</h3><div class="st"><div><b>600</b><span>хостов</span></div><div><b>100&nbsp;000</b><span>активных элементов данных</span></div><div><b>&lt;&nbsp;2&nbsp;мес.</b><span>внедрение с&nbsp;сохранением истории</span></div></div><span class="more">chislitellab.ru/pult</span></div>
+    <div class="card rv" style="--d:180ms"><span class="yr">Девелопмент</span><h3>Capital Group</h3><div class="st"><div><b>600</b><span>хостов</span></div><div><b>100&nbsp;000</b><span>активных элементов данных</span></div><div><b>&lt;&nbsp;2&nbsp;мес.</b><span>внедрение с&nbsp;сохранением истории</span></div></div><a class="more" href="https://www.cnews.ru/news/line/2025-08-13_capital_group_postroila_tsentralizovannyj" target="_blank" rel="noopener">CNews →</a></div>
   </div>
   <div class="foot"><span></span><span class="pg"></span></div>
 </section>
@@ -1032,28 +1097,30 @@ html.js .slide:not(.active) .tl-line i { width: 0; }
 <section class="slide g-tl" id="support" data-title="Признание и сопровождение">
   <div class="top"><div class="eyebrow"><span class="n">03</span>Признание и&nbsp;сопровождение</div><img src="assets/pult-horizontal-on-dark.svg" alt="Пульт" class="logo"></div>
   <h2 class="h2 rv" style="max-width:none">Рынок выбирает Пульт, вендор остаётся рядом</h2>
-  <ul class="aw rv" style="--d:60ms">
-    <li><b>Топ‑1</b><span>российских альтернатив Zabbix<br>CNewsMarket, 2026</span></li>
-    <li><b>Решение года</b><span>Digital Leaders, 2026</span></li>
-    <li><b>Топ‑2</b><span>по&nbsp;внедрениям в&nbsp;инфраструктурном мониторинге<br>ТеДо, 2025</span></li>
-  </ul>
-  <div class="cl-wall rv" style="--d:120ms">
-    <p class="cl-k">Нам доверяют</p>
-    <div class="cl-logos">
-      <span><img src="assets/logos/sheremetyevo.webp" alt="Аэропорт Шереметьево"></span>
-      <span><img src="assets/logos/t2.svg" alt="Т2" style="max-height:70px"></span>
-      <span><img src="assets/logos/gazpromneft.webp" alt="Газпром нефть" style="max-height:70px"></span>
-      <span><img src="assets/logos/hsbc.svg" alt="HSBC" style="max-height:50px"></span>
-      <span><img src="assets/logos/commerzbank.svg" alt="Коммерцбанк (Евразия)" style="max-height:34px"></span>
-      <span><img src="assets/logos/sakhalin-energy.webp" alt="Сахалинская Энергия" style="max-height:80px"></span>
-      <span><img src="assets/logos/mosinzhproekt.svg" alt="Мосинжпроект" style="max-height:50px"></span>
-      <span><img src="assets/logos/capital-group.webp" alt="Capital Group"></span>
-      <span class="lt"><img src="assets/logos/ixcellerate.webp" alt="">IXcellerate</span>
-      <span class="wm" style="color:#0079c2">Газпромтранс</span>
-      <span class="wm" style="color:#0a4a8a">Арктикгаз</span>
-      <span class="lt"><img src="assets/logos/krasnodar-coat.svg" alt="">ЦИТ Краснодарского края</span>
-      <span class="wm" style="color:#1d2a44">АвтоАльянс</span>
-      <span class="more">и&nbsp;ещё 40+</span>
+  <div class="recognition">
+    <ul class="aw rv" style="--d:60ms">
+      <li><b>Топ‑1</b><span>российских альтернатив Zabbix<br>CNewsMarket, 2026</span></li>
+      <li><b>Решение года</b><span>Digital Leaders, 2026</span></li>
+      <li><b>Топ‑2</b><span>по&nbsp;внедрениям в&nbsp;инфраструктурном мониторинге<br>ТеДо, 2025</span></li>
+    </ul>
+    <div class="cl-wall rv" style="--d:120ms">
+      <h3 class="cl-k">Нам доверяют</h3>
+      <div class="cl-logos">
+        <span><img src="assets/logos/sheremetyevo.webp" alt="Аэропорт Шереметьево"></span>
+        <span><img class="brand-mark" src="assets/logos/t2.svg" alt="Т2"></span>
+        <span><img src="assets/logos/gazpromneft.webp" alt="Газпром нефть" style="max-height:70px"></span>
+        <span><img class="brand-mark" src="assets/logos/hsbc.svg" alt="HSBC"></span>
+        <span><img src="assets/logos/commerzbank.svg" alt="Коммерцбанк (Евразия)" style="max-height:34px"></span>
+        <span><img class="brand-mark brand-matte" src="assets/logos/sakhalin-energy.webp" alt="Сахалинская Энергия"></span>
+        <span><img src="assets/logos/mosinzhproekt.svg" alt="Мосинжпроект" style="max-height:50px"></span>
+        <span><img src="assets/logos/capital-group.webp" alt="Capital Group"></span>
+        <span class="lt"><img src="assets/logos/ixcellerate.webp" alt="">IXcellerate</span>
+        <span class="wm">Газпромтранс</span>
+        <span class="wm">Арктикгаз</span>
+        <span class="lt"><img src="assets/logos/krasnodar-coat.svg" alt="">ЦИТ Краснодарского края</span>
+        <span class="wm">АвтоАльянс</span>
+        <span class="more">и&nbsp;ещё 40+</span>
+      </div>
     </div>
   </div>
   <div class="foot"><span></span><span class="pg"></span></div>
@@ -1112,13 +1179,12 @@ html.js .slide:not(.active) .tl-line i { width: 0; }
 </div>
 
 <div class="ui" aria-label="Навигация по слайдам">
-  <div class="deck-versions" role="group" aria-label="Версии презентации"><span aria-current="page">Версия 1</span><a id="deck-version-link" href="./v2/#cover">Версия 2</a></div>
   <button id="prev" aria-label="Предыдущий слайд">←</button>
   <span class="cnt" id="cnt"></span>
   <button id="next" aria-label="Следующий слайд">→</button>
   <button id="fs" aria-label="Во весь экран" title="Клавиша F">⤢</button>
   <button id="hbtn" aria-label="Подсказка по клавишам">?</button>
-  <a class="dl" id="dl" href="Пульт%20-%20презентация.pdf" download="Пульт - презентация.pdf"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2v8M4.5 6.5 8 10l3.5-3.5M2.5 13.5h11"/></svg><span><span class="dl-w">Скачать </span>PDF</span></a>
+  <a class="dl" id="dl" aria-label="Скачать PDF" href="%D0%9F%D1%83%D0%BB%D1%8C%D1%82%20-%20%D0%BF%D1%80%D0%B5%D0%B7%D0%B5%D0%BD%D1%82%D0%B0%D1%86%D0%B8%D1%8F%20v2.pdf" download="Пульт - презентация v2.pdf"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2v8M4.5 6.5 8 10l3.5-3.5M2.5 13.5h11"/></svg><span><span class="dl-w">Скачать </span>PDF</span></a>
 </div>
 <div id="rot" role="status">Поверните телефон, чтобы слайды стали крупнее, или&nbsp;скачайте PDF</div>
 <div id="help"><b>← →</b> листать<br><b>F</b> полный экран<br><b>Home / End</b> в начало / в конец<br><b>?</b> эта подсказка</div>
@@ -1162,7 +1228,6 @@ html.js .slide:not(.active) .tl-line i { width: 0; }
     document.getElementById('progress').style.width = ((cur + 1) / slides.length * 100) + '%';
     document.getElementById('dl').classList.toggle('on-poster', slides[cur].classList.contains('poster'));
     var h = '#' + slides[cur].id;
-    document.getElementById('deck-version-link').hash = h;
     if (location.hash !== h) history.replaceState(null, '', location.pathname + location.search + h);
   }
   function go(id) { var i = slides.findIndex(function (s) { return s.id === id; }); if (i > -1) show(i); }
